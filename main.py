@@ -18,7 +18,7 @@ def tree(href_array,ssl):
     response = session.post(url, data=ssl)
     d = {    
             'tag' : col[0].getText(),
-            'component': col[1].getText(),
+            'attr': col[1].getText(),
             'name' : col[2].getText(),
             'framework' : col[3].getText(),
         }
@@ -44,7 +44,7 @@ for page in range(5):
                 href_array.append(href[0])
                 answer = tree(href_array)
 
-order=['tag', 'component', 'name', 'framework']                
+order=['tag', 'attr', 'name', 'framework']                
 with open('output.csv', 'w') as f:
     writer = csv.DictWriter(f, fieldnames=order)
     writer.writeheader()
